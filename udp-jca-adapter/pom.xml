@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>com.github.exabrial</groupId>
 		<artifactId>udp-jca-adapter-parent</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 
 	<groupId>com.github.exabrial</groupId>
 	<artifactId>udp-jca-adapter</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>${project.artifactId}</name>
 
@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>com.github.exabrial</groupId>
 			<artifactId>udp-jca-adapter-api</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
