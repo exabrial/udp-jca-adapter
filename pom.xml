@@ -4,7 +4,7 @@
 
 	<groupId>com.github.exabrial</groupId>
 	<artifactId>udp-jca-adapter-parent</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<description>udp-jca-adapter-parent</description>
 	<name>${project.artifactId}</name>
@@ -14,7 +14,8 @@
 		<connection>scm:git:ssh://git@github.com/exabrial/udp-jca-adapter.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/exabrial/udp-jca-adapter.git</developerConnection>
 		<url>https://github.com/exabrial/udp-jca-adapter/tree/master</url>
-	</scm>
+	  <tag>udp-jca-adapter-parent-1.0.0</tag>
+  </scm>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
