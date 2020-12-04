@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connector
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/connector_1_7.xsd"
+	version="1.7">
+	<module-name>UDPResourceAdapter</module-name>
+	<display-name>UDPResourceAdapter</display-name>
+	<vendor-name>O'Doom Engineering</vendor-name>
+	<eis-type>UDP</eis-type>
+	<resourceadapter-version>1.0</resourceadapter-version>
+	<resourceadapter>
+		<resourceadapter-class>com.github.exabrial.jca.udp.ra.UDPResourceAdapter</resourceadapter-class>
+		<config-property>
+			<config-property-name>port</config-property-name>
+			<config-property-type>java.lang.Integer</config-property-type>
+			<config-property-value>5553</config-property-value>
+		</config-property>
+		<config-property>
+			<config-property-name>maxPacketSize</config-property-name>
+			<config-property-type>java.lang.Integer</config-property-type>
+			<config-property-value>512</config-property-value>
+		</config-property>
+		<inbound-resourceadapter>
+			<messageadapter>
+				<messagelistener>
+					<messagelistener-type>com.github.exabrial.jca.udp.UDPMessageListener</messagelistener-type>
+					<activationspec>
+						<activationspec-class>com.github.exabrial.jca.udp.ra.UDPActivationSpec</activationspec-class>
+					</activationspec>
+				</messagelistener>
+			</messageadapter>
+		</inbound-resourceadapter>
+	</resourceadapter>
+</connector>
