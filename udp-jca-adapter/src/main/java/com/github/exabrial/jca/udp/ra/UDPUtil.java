@@ -11,10 +11,10 @@ import lombok.Data;
 
 public final class UDPUtil {
 	public static InboundPacket receive(final DatagramSocket datagramSocket, final int maxPacketSize) throws IOException {
-		final byte[] buffer = new byte[maxPacketSize];
-		final DatagramPacket datagramPacket = new DatagramPacket(buffer, buffer.length);
 		InboundPacket inboundPacket;
 		try {
+			final byte[] buffer = new byte[maxPacketSize];
+			final DatagramPacket datagramPacket = new DatagramPacket(buffer, buffer.length);
 			datagramSocket.receive(datagramPacket);
 			inboundPacket = new InboundPacket(datagramPacket.getData(), datagramPacket.getAddress(), datagramPacket.getPort());
 		} catch (final SocketTimeoutException e) {

@@ -1,6 +1,9 @@
 package com.github.exabrial.jca.udp.ra;
 
 import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 
 import javax.resource.spi.endpoint.MessageEndpointFactory;
 import javax.resource.spi.work.Work;
@@ -16,21 +19,27 @@ public class UDPWorker implements Work {
 	private static final Logger log = LoggerFactory.getLogger(UDPWorker.class);
 	private final WorkManager workManager;
 	private final MessageEndpointFactory messageEndpointFactory;
-	private final DatagramSocket datagramSocket;
 	private final Integer maxPacketSize;
+	private final Integer port;
+	private final InetAddress inetAddress;
+	private final DatagramSocket datagramSocket;
+
 	private volatile boolean done;
 
-	public UDPWorker(final WorkManager workManager, final MessageEndpointFactory messageEndpointFactory,
-			final DatagramSocket datagramSocket, final Integer maxPacketSize) {
+	public UDPWorker(final WorkManager workManager, final MessageEndpointFactory messageEndpointFactory, final Integer maxPacketSize,
+			final Integer port, final String address) throws UnknownHostException, SocketException {
 		this.workManager = workManager;
 		this.messageEndpointFactory = messageEndpointFactory;
-		this.datagramSocket = datagramSocket;
 		this.maxPacketSize = maxPacketSize;
+		this.port = port;
+		this.inetAddress = InetAddress.getByName(address);
+		datagramSocket = new DatagramSocket(port, inetAddress);
+		datagramSocket.setSoTimeout(1000);
 	}
 
 	@Override
 	public void run() {
-		log.info("run() UDP listener starting datagramSocket.port:{}", datagramSocket.getPort());
+		log.info("run() UDP Listener on socket bound to:{}:{}", inetAddress, port);
 		done = false;
 		while (!done) {
 			try {

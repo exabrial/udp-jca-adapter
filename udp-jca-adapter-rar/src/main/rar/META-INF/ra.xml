@@ -12,6 +12,11 @@
 	<resourceadapter>
 		<resourceadapter-class>com.github.exabrial.jca.udp.ra.UDPResourceAdapter</resourceadapter-class>
 		<config-property>
+			<config-property-name>address</config-property-name>
+			<config-property-type>java.lang.String</config-property-type>
+			<config-property-value>localhost</config-property-value>
+		</config-property>
+		<config-property>
 			<config-property-name>port</config-property-name>
 			<config-property-type>java.lang.Integer</config-property-type>
 			<config-property-value>5553</config-property-value>

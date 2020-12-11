@@ -38,31 +38,24 @@ The API jar contains the interface you need to implement.
 		<dependency>
 			<groupId>com.github.exabrial</groupId>
 			<artifactId>udp-jca-adapter-api</artifactId>
-			<version>1.0.0</version>
+			<version>1.1.0</version>
 			<scope>compile</scope>
 		</dependency>
 ```
 
 ## Installation 
 
-RAR installation by app server differs by server. Most of the time you install a JCA adapter at the EAR or server level.
+RAR installation by app server differs greatly by server. Most of the time you install a JCA adapter at the EAR or server level.
 
-### Apache TomEE 8.0.4+ embedded war deployment
+### Easiset deployment: Apache TomEE 8.0.4+ embedded war deployment
 
-To deploy at the Application level, add the following to your app's `pom.xml`. TomEE will handle creation of all the containers automatically, including a threadpool size of 30 for dispatching requests. Default configuration for port and max packet size will be used.
+To deploy at the Application level, add the following to your app's `pom.xml`, then copy the `ra.xml` from the into your WEB-INF directory.
 
 ```
 		<dependency>
 			<groupId>com.github.exabrial</groupId>
 			<artifactId>udp-jca-adapter</artifactId>
-			<version>1.0.0</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.github.exabrial</groupId>
-			<artifactId>udp-jca-adapter-rar</artifactId>
-			<version>1.0.0</version>
-			<type>rar</type>
+			<version>1.1.0</version>
 			<scope>runtime</scope>
 		</dependency>
 ```
@@ -73,4 +66,5 @@ To deploy at the Application level, add the following to your app's `pom.xml`. T
 |---------------	|------	|---------	|
 | port          	| int  	| 5553    	|
 | maxPacketSize 	| int  	| 512     	|
+| address         | String| localhost |
 
